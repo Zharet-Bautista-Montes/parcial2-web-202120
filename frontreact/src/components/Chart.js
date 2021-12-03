@@ -25,6 +25,20 @@ export const Chart = ({ width = 600, height = 600, data }) => {
       .range([0, iwidth])
       .padding(0.1);
 
+    const bars = g.append('rect').selectAll(data);
+
+    bars.append('rectangle')
+    .attr('x', d => x(d.name))
+    .attr('y', d => iheight - y(d.stock))
+    .attr('height', d => y(d.stock))
+    .attr('x', d => iwidth)
+    .style('fill', 'purple');
+
+    g.append('x--axis')
+    .attr('transform', `translate(0,${iheight})`);
+
+    g.append('y--axis')
+
     // Continue with implementation. Don't forget the tooltip
   });
 

@@ -19,7 +19,7 @@ function App() {
   return (
     <IntlProvider locale={language} messages={messages[language]}>
       <header>
-        <NavBar onSearchKeyChange={setSearchkey} />
+        <NavBar onSearchKeyChange={setSearchkey} setLanguage={setLanguage}/>
       </header>
       <main>
         <Routes>
@@ -28,7 +28,9 @@ function App() {
             path='/'
             element={<Home searchKey={searchState.searchKey} />}
           />
+          <Route exact path='/home' element={<Home searchKey='' />} />
           <Route exact path='/report' element={<Report />} />
+          <Route exact path='/api/products' element={<Home searchKey='' />} />
         </Routes>
       </main>
     </IntlProvider>

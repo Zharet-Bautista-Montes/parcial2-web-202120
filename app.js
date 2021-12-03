@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'frontreact/build')));
 app.use('/api/products', productRouter);
 
 app.get('*', (req, res) => {
+  console.log(req.query.queryParam);
   res.sendFile(path.join(__dirname, 'frontreact/build/index.html'));
 });
 

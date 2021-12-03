@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Chart } from '../components/Chart';
+import { getProductsService } from '../services/product';
 
 export const Report = () => {
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const dataProducts = getProductsService('');
+    setProducts(dataProducts);
+    <Chart data={products}></Chart>
+  }, [products]);
 
   return (
     <section id='report'>
